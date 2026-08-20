@@ -1,9 +1,9 @@
 'use client';
 
-import React, { ButtonHTMLAttributes, ReactNode } from "react";
-import { motion } from "framer-motion";
+import React, { ReactNode } from "react";
+import { motion, HTMLMotionProps } from "framer-motion";
 
-interface GoldButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface GoldButtonProps extends HTMLMotionProps<"button"> {
   children: ReactNode;
   variant?: "solid" | "outline";
 }
@@ -19,7 +19,6 @@ export default function GoldButton({
 }: GoldButtonProps) {
   return (
     <motion.button
-      {...rest}
       type={type}
       onClick={onClick}
       disabled={disabled}
@@ -43,6 +42,7 @@ export default function GoldButton({
               boxShadow: "0 0 25px rgba(212, 175, 55, 0.8), 0 10px 25px rgba(0, 0, 0, 0.8)"
             }
       }
+      {...rest}
     >
       <span className="relative z-10 flex items-center gap-2 text-sm md:text-base font-extrabold uppercase text-black drop-shadow-none">
         {children}
