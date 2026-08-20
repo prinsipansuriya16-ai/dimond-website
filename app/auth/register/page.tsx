@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FileText, UploadCloud } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
@@ -8,7 +8,7 @@ import GoldButton from "@/components/GoldButton";
 import { registerAccount } from "@/lib/store";
 import { Role } from "@/lib/types";
 
-export default function RegisterPage() {
+function RegisterPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const initialRole = (searchParams.get("role") as Role) === "seller" ? "seller" : "buyer";
@@ -108,5 +108,13 @@ function Field({ label, value, onChange, type = "text", required = false }: { la
       <span className="mb-1 block font-body text-xs font-medium uppercase tracking-wider text-champagne/60">{label}</span>
       <input type={type} value={value} onChange={(e) => onChange(e.target.value)} required={required} className="w-full rounded-lg border border-imperial/25 bg-black/30 px-4 py-3 font-body text-sm text-champagne outline-none focus:border-imperial" />
     </label>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={null}>
+      <RegisterPageContent />
+    </Suspense>
   );
 }
