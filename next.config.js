@@ -4,8 +4,15 @@ const nextConfig = {
     // TypeScript errors ki wajah se build fail nahi hoga
     ignoreBuildErrors: true,
   },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*.supabase.co",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
-module.exports = nextConfig;
-
