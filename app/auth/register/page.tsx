@@ -82,7 +82,7 @@ function RegisterPageContent() {
                 <UploadCloud className="h-5 w-5 text-imperial" />
                 <div>
                   <p className="font-heading text-sm font-semibold text-champagne">KYC Documents</p>
-                  <p className="font-body text-xs text-champagne/45">Files are stored in a private Supabase Storage bucket.</p>
+                  <p className="font-body text-xs text-champagne/45">Upload KYC Documents (Aadhaar Card / PAN Card)</p>
                 </div>
               </div>
               <input type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.webp" onChange={handleDocuments} className="mt-4 block w-full text-xs text-champagne/60 file:mr-4 file:rounded-full file:border file:border-imperial/30 file:bg-imperial/10 file:px-4 file:py-2 file:text-xs file:text-imperial" />
